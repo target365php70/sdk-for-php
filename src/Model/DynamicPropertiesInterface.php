@@ -6,6 +6,6 @@ namespace Target365\ApiSdk\Model;
 
 interface DynamicPropertiesInterface
 {
-    public function getProperties(): ?Properties;
-    public function setProperties(?Properties $properties);
+    public function getProperties();
+    public function setProperties($properties = null);
 }

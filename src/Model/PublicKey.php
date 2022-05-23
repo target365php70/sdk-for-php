@@ -17,7 +17,7 @@ class PublicKey extends AbstractModel
     protected $created;
     protected $lastModified;
 
-    protected function attributes(): array
+    protected function attributes()
     {
         return [
             'name',
@@ -31,24 +31,24 @@ class PublicKey extends AbstractModel
         ];
     }
 
-    public function getIdentifier(): string
+    public function getIdentifier()
     {
         return $this->getName();
     }
 
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $name)
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getExpiry(): ?DateTimeAttribute
+    public function getExpiry()
     {
         return $this->expiry;
     }
@@ -58,40 +58,40 @@ class PublicKey extends AbstractModel
      * @return PublicKey
      * @throws \Target365\ApiSdk\Exception\ApiClientException
      */
-    public function setExpiry(string $expiry): self
+    public function setExpiry(string $expiry)
     {
         $this->expiry = new DateTimeAttribute($expiry);
         return $this;
     }
 
-    public function getSignAlgo(): string
+    public function getSignAlgo()
     {
         return $this->signAlgo;
     }
 
-    public function setSignAlgo(string $signAlgo): self
+    public function setSignAlgo(string $signAlgo)
     {
         $this->signAlgo = $signAlgo;
         return $this;
     }
 
-    public function getHashAlgo(): string
+    public function getHashAlgo()
     {
         return $this->hashAlgo;
     }
 
-    public function setHashAlgo(string $hashAlgo): self
+    public function setHashAlgo(string $hashAlgo)
     {
         $this->hashAlgo = $hashAlgo;
         return $this;
     }
 
-    public function getPublicKeyString(): string
+    public function getPublicKeyString()
     {
         return $this->publicKeyString;
     }
 
-    public function setPublicKeyString(string $publicKeyString): self
+    public function setPublicKeyString(string $publicKeyString)
     {
         $this->publicKeyString = $publicKeyString;
         return $this;
@@ -102,14 +102,14 @@ class PublicKey extends AbstractModel
         return $this->notUsableBefore;
     }
 
-    public function setNotUsableBefore($notUsableBefore): self
+    public function setNotUsableBefore($notUsableBefore)
     {
         $this->notUsableBefore = $notUsableBefore;
 
         return $this;
     }
 
-    public function getCreated(): ?DateTimeAttribute
+    public function getCreated()
     {
         return $this->created;
     }
@@ -119,13 +119,13 @@ class PublicKey extends AbstractModel
      * @return PublicKey
      * @throws \Target365\ApiSdk\Exception\ApiClientException
      */
-    public function setCreated(string $created): self
+    public function setCreated(string $created)
     {
         $this->created = new DateTimeAttribute($created);
         return $this;
     }
 
-    public function getLastModified(): ?DateTimeAttribute
+    public function getLastModified()
     {
         return $this->lastModified;
     }
@@ -135,7 +135,7 @@ class PublicKey extends AbstractModel
      * @return PublicKey
      * @throws \Target365\ApiSdk\Exception\ApiClientException
      */
-    public function setLastModified(string $lastModified): self
+    public function setLastModified(string $lastModified)
     {
         $this->lastModified = new DateTimeAttribute($lastModified);
         return $this;

@@ -10,12 +10,12 @@ use Target365\ApiSdk\Model\StrexRegistrationSms;
 
 class StrexRegistrationResource extends AbstractCrudResource
 {
-    protected function getResourceUri(): string
+    protected function getResourceUri()
     {
         return 'strex/registrationsms';
     }
 
-    protected function getResourceModelFqns(): string
+    protected function getResourceModelFqns()
     {
         return StrexRegistrationSms::class;
     }
@@ -29,24 +29,24 @@ class StrexRegistrationResource extends AbstractCrudResource
         return $model->getIdentifier();
     }
 
-    public function getUserValidity(string $merchantId, string $recipient): string
+    public function getUserValidity(string $merchantId, string $recipient)
     {
         $uri = 'strex/validity?recipient=' . urlencode($recipient) . '&merchantId=' . urlencode($merchantId);
         $response = $this->apiClient->request('get', $uri);
         return $this->decodeResponseJsonString($response);
     }
 
-    public function list(): array
+    public function list()
     {
         throw new ResourceMethodNotAvailableException();
     }
 
-    public function put(AbstractModel $model): void
+    public function put(AbstractModel $model)
     {
         throw new ResourceMethodNotAvailableException();
     }
 
-    public function delete(string $identifier): void
+    public function delete(string $identifier)
     {
         throw new ResourceMethodNotAvailableException();
     }

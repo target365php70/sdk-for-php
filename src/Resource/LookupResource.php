@@ -10,12 +10,12 @@ use Target365\ApiSdk\Model\Lookup;
 
 class LookupResource extends AbstractResource // intentionally not extending AbstractCrudResource
 {
-    protected function getResourceUri(): string
+    protected function getResourceUri()
     {
         return 'lookup';
     }
 
-    protected function getResourceModelFqns(): string
+    protected function getResourceModelFqns()
     {
         return Lookup::class;
     }
@@ -26,7 +26,7 @@ class LookupResource extends AbstractResource // intentionally not extending Abs
      *
      * @param string $phoneNumber international phone number in E.164 format
      */
-    public function get(string $phoneNumber): ?AbstractModel
+    public function get(string $phoneNumber)
     {
         $queryStringData = [
             'msisdn' => $phoneNumber,

@@ -14,8 +14,6 @@ class OneClickConfig extends AbstractModel
     protected $merchantId;
     protected $serviceCode;
     protected $businessModel;
-    protected $preAuthServiceId;
-    protected $preAuthServiceDescription;
     protected $recurring;
     protected $redirectUrl;
     protected $onlineText;
@@ -31,7 +29,7 @@ class OneClickConfig extends AbstractModel
     protected $created;
     protected $lastModified;
 
-    protected function attributes(): array
+    protected function attributes()
     {
         return [
             'configId',
@@ -39,8 +37,6 @@ class OneClickConfig extends AbstractModel
             'merchantId',
             'serviceCode',
             'businessModel',
-            'preAuthServiceId',
-            'preAuthServiceDescription',
             'recurring',
             'redirectUrl',
             'onlineText',
@@ -61,232 +57,210 @@ class OneClickConfig extends AbstractModel
     /**
      * @return string|null
      */
-    public function getIdentifier(): ?string
+    public function getIdentifier()
     {
         return $this->configId;
     }
 
-    public function getConfigId(): string
+    public function getConfigId()
     {
         return $this->configId;
     }
 
-    public function setConfigId(string $configId): self
+    public function setConfigId(string $configId)
     {
         $this->configId = $configId;
         return $this;
     }
 
-    public function getShortNumber(): string
+    public function getShortNumber()
     {
         return $this->shortNumber;
     }
 
-    public function setShortNumber(string $shortNumber): self
+    public function setShortNumber(string $shortNumber)
     {
         $this->shortNumber = $shortNumber;
         return $this;
     }
 
-    public function getMerchantId(): string
+    public function getMerchantId()
     {
         return $this->merchantId;
     }
 
-    public function setMerchantId(string $merchantId): self
+    public function setMerchantId(string $merchantId)
     {
         $this->merchantId = $merchantId;
         return $this;
     }
 
-    public function getServiceCode(): string
+    public function getServiceCode()
     {
         return $this->serviceCode;
     }
 
-    public function setServiceCode(string $serviceCode): self
+    public function setServiceCode(string $serviceCode)
     {
         $this->serviceCode = $serviceCode;
         return $this;
     }
 
-    public function getBusinessModel(): ?string
+    public function getBusinessModel()
     {
         return $this->businessModel;
     }
 
-    public function setBusinessModel(?string $businessModel): self
+    public function setBusinessModel($businessModel = null)
     {
         $this->businessModel = $businessModel;
         return $this;
     }
 
-    public function getPreAuthServiceId(): ?string
-    {
-        return $this->preAuthServiceId;
-    }
-
-    public function setPreAuthServiceId(?string $preAuthServiceId): self
-    {
-        $this->preAuthServiceId = $preAuthServiceId;
-        return $this;
-    }
-
-    public function getPreAuthServiceDescription(): ?string
-    {
-        return $this->preAuthServiceDescription;
-    }
-
-    public function setPreAuthServiceDescription(?string $preAuthServiceDescription): self
-    {
-        $this->preAuthServiceDescription = $preAuthServiceDescription;
-        return $this;
-    }
-
-    public function getRecurring(): ?bool
+    public function getRecurring()
     {
         return $this->recurring;
     }
 
-    public function setRecurring(?bool $recurring): self
+    public function setRecurring($recurring = null)
     {
         $this->recurring = $recurring;
         return $this;
     }
 
-    public function getRedirectUrl(): ?string
+    public function getRedirectUrl()
     {
         return $this->redirectUrl;
     }
 
-    public function setRedirectUrl(?string $redirectUrl): self
+    public function setRedirectUrl($redirectUrl = null)
     {
         $this->redirectUrl = $redirectUrl;
         return $this;
     }
 
-    public function getOnlineText(): ?string
+    public function getOnlineText()
     {
         return $this->onlineText;
     }
 
-    public function setOnlineText(?string $onlineText): self
+    public function setOnlineText($onlineText = null)
     {
         $this->onlineText = $onlineText;
         return $this;
     }
 
-    public function getOfflineText(): ?string
+    public function getOfflineText()
     {
         return $this->offlineText;
     }
 
-    public function setOfflineText(?string $offlineText): self
+    public function setOfflineText($offlineText = null)
     {
         $this->offlineText = $offlineText;
         return $this;
     }
 
-    public function getAge(): ?int
+    public function getAge()
     {
         return $this->age;
     }
 
-    public function setAge(?int $age): self
+    public function setAge($age = null)
     {
         $this->age = $age;
         return $this;
     }
 
-    public function getIsRestricted(): ?bool
+    public function getIsRestricted()
     {
         return $this->isRestricted;
     }
 
-    public function setIsRestricted(?bool $isRestricted): self
+    public function setIsRestricted($isRestricted = null)
     {
         $this->isRestricted = $isRestricted;
         return $this;
     }
 
-    public function getSmsConfirmation(): ?bool
+    public function getSmsConfirmation()
     {
         return $this->smsConfirmation;
     }
 
-    public function setSmsConfirmation(?bool $smsConfirmation): self
+    public function setSmsConfirmation($smsConfirmation = null)
     {
         $this->smsConfirmation = $smsConfirmation;
         return $this;
     }
 
-    public function getInvoiceText(): string
+    public function getInvoiceText()
     {
         return $this->invoiceText;
     }
 
-    public function setInvoiceText(string $invoiceText): self
+    public function setInvoiceText(string $invoiceText)
     {
         $this->invoiceText = $invoiceText;
         return $this;
     }
 
-    public function getPrice(): float
+    public function getPrice()
     {
         return $this->price;
     }
 
-    public function setPrice(float $price): self
+    public function setPrice(float $price)
     {
         $this->price = $price;
         return $this;
     }
 
-    public function getSubscriptionPrice(): ?float
+    public function getSubscriptionPrice()
     {
         return $this->subscriptionPrice;
     }
 
-    public function setSubscriptionPrice(float $subscriptionPrice): self
+    public function setSubscriptionPrice(float $subscriptionPrice)
     {
         $this->subscriptionPrice = $subscriptionPrice;
         return $this;
     }
 
-    public function getSubscriptionInterval(): ?string
+    public function getSubscriptionInterval()
     {
         return $this->subscriptionInterval;
     }
 
-    public function setSubscriptionInterval(string $subscriptionInterval): self
+    public function setSubscriptionInterval(string $subscriptionInterval)
     {
         $this->subscriptionInterval = $subscriptionInterval;
         return $this;
     }
 
-    public function getSubscriptionStartSms(): ?string
+	public function getSubscriptionStartSms()
     {
         return $this->subscriptionStartSms;
     }
 
-    public function setSubscriptionStartSms(string $subscriptionStartSms): self
+    public function setSubscriptionStartSms(string $subscriptionStartSms)
     {
-        $this->subscriptionStartSms = $subscriptionStartSms;
+        $this->setSubscriptionStartSms = $subscriptionStartSms;
         return $this;
     }
 
-    public function getTimeout(): ?int
+    public function getTimeout()
     {
         return $this->timeout;
     }
 
-    public function setTimeout(?int $timeout): self
+    public function setTimeout($timeout = null)
     {
         $this->timeout = $timeout;
         return $this;
     }
 
-    public function getLastModified(): ?DateTimeAttribute
+    public function getLastModified()
     {
         return $this->lastModified;
     }
@@ -296,13 +270,13 @@ class OneClickConfig extends AbstractModel
      * @return StrexTransaction
      * @throws \Target365\ApiSdk\Exception\ApiClientException
      */
-    public function setLastModified(string $lastModified): self
+    public function setLastModified(string $lastModified)
     {
         $this->lastModified = new DateTimeAttribute($lastModified);
         return $this;
     }
 
-    public function getCreated(): ?DateTimeAttribute
+    public function getCreated()
     {
         return $this->created;
     }
@@ -312,7 +286,7 @@ class OneClickConfig extends AbstractModel
      * @return StrexTransaction
      * @throws \Target365\ApiSdk\Exception\ApiClientException
      */
-    public function setCreated(string $created): self
+    public function setCreated(string $created)
     {
         $this->created = new DateTimeAttribute($created);
         return $this;

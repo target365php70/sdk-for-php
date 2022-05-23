@@ -11,8 +11,6 @@ class StrexData extends AbstractModel
     protected $merchantId;
     protected $serviceCode;
     protected $businessModel;
-    protected $preAuthServiceId;
-    protected $preAuthServiceDescription;
     protected $age;
     protected $isRestricted;
     protected $smsConfirmation;
@@ -23,14 +21,12 @@ class StrexData extends AbstractModel
     protected $resultCode;
     protected $resultDescription;
 
-    protected function attributes(): array
+    protected function attributes()
     {
         return [
             'merchantId',
             'serviceCode',
             'businessModel',
-            'preAuthServiceId',
-            'preAuthServiceDescription',
             'age',
             'isRestricted',
             'smsConfirmation',
@@ -46,160 +42,138 @@ class StrexData extends AbstractModel
     /**
      * @return string|null
      */
-    public function getIdentifier(): ?string
+    public function getIdentifier()
     {
         return null;
     }
 
-    public function getMerchantId(): string
+    public function getMerchantId()
     {
         return $this->merchantId;
     }
 
-    public function setMerchantId(string $merchantId): self
+    public function setMerchantId(string $merchantId)
     {
         $this->merchantId = $merchantId;
         return $this;
     }
 
-    public function getServiceCode(): string
+    public function getServiceCode()
     {
         return $this->serviceCode;
     }
 
-    public function setServiceCode(string $serviceCode): self
+    public function setServiceCode(string $serviceCode)
     {
         $this->serviceCode = $serviceCode;
         return $this;
     }
     
-    public function getBusinessModel(): ?string
+    public function getBusinessModel()
     {
         return $this->businessModel;
     }
 
-    public function setBusinessModel(?string $businessModel): self
+    public function setBusinessModel($businessModel = null)
     {
         $this->businessModel = $businessModel;
         return $this;
     }
 
-    public function getPreAuthServiceId(): ?string
-    {
-        return $this->preAuthServiceId;
-    }
-
-    public function setPreAuthServiceId(?string $preAuthServiceId): self
-    {
-        $this->preAuthServiceId = $preAuthServiceId;
-        return $this;
-    }
-
-    public function getPreAuthServiceDescription(): ?string
-    {
-        return $this->preAuthServiceDescription;
-    }
-
-    public function setPreAuthServiceDescription(?string $preAuthServiceDescription): self
-    {
-        $this->preAuthServiceDescription = $preAuthServiceDescription;
-        return $this;
-    }
-
-    public function getAge(): ?int
+    public function getAge()
     {
         return $this->age;
     }
 
-    public function setAge(?int $age): self
+    public function setAge($age = null)
     {
         $this->age = $age;
         return $this;
     }
 
-    public function getIsRestricted(): ?bool
+    public function getIsRestricted()
     {
         return $this->isRestricted;
     }
 
-    public function setIsRestricted(?int $isRestricted): self
+    public function setIsRestricted($isRestricted = null)
     {
         $this->isRestricted = $isRestricted;
         return $this;
     }
 
-    public function getSmsConfirmation(): ?bool
+    public function getSmsConfirmation()
     {
         return $this->smsConfirmation;
     }
 
-    public function setSmsConfirmation(?bool $smsConfirmation): self
+    public function setSmsConfirmation($smsConfirmation = null)
     {
         $this->smsConfirmation = $smsConfirmation;
         return $this;
     }
 
-    public function getInvoiceText(): string
+    public function getInvoiceText()
     {
         return $this->invoiceText;
     }
 
-    public function setInvoiceText(string $invoiceText): self
+    public function setInvoiceText(string $invoiceText)
     {
         $this->invoiceText = $invoiceText;
         return $this;
     }
 
-    public function getPrice(): float
+    public function getPrice()
     {
         return $this->price;
     }
 
-    public function setPrice(float $price): self
+    public function setPrice(float $price)
     {
         $this->price = $price;
         return $this;
     }
 
-    public function getTimeout(): ?int
+    public function getTimeout()
     {
         return $this->timeout;
     }
 
-    public function setTimeout(?int $timeout): self
+    public function setTimeout($timeout = null)
     {
         $this->timeout = $timeout;
         return $this;
     }
 
-    public function getBilled(): ?bool
+    public function getBilled()
     {
         return $this->billed;
     }
 
-    public function setBilled(?bool $billed): self
+    public function setBilled($billed = null)
     {
         $this->billed = $billed;
         return $this;
     }
 
-    public function getResultCode(): ?string
+    public function getResultCode()
     {
         return $this->resultCode;
     }
 
-    public function setResultCode(?string $resultCode): self
+    public function setResultCode($resultCode = null)
     {
         $this->resultCode = $resultCode;
         return $this;
     }
 
-    public function getResultDescription(): ?string
+    public function getResultDescription()
     {
         return $this->resultDescription;
     }
 
-    public function setResultDescription(?string $resultDescription): self
+    public function setResultDescription($resultDescription = null)
     {
         $this->resultDescription = $resultDescription;
         return $this;

@@ -8,12 +8,12 @@ use Target365\ApiSdk\Model\InMessage;
 
 class InMessageResource extends AbstractResource // intentionally not extending AbstractCrudResource
 {
-    protected function getResourceUri(): string
+    protected function getResourceUri()
     {
         return 'in-messages';
     }
 
-    protected function getResourceModelFqns(): string
+    protected function getResourceModelFqns()
     {
         return InMessage::class;
     }
@@ -28,7 +28,7 @@ class InMessageResource extends AbstractResource // intentionally not extending 
      * @throws \InvalidArgumentException
      * @throws \Target365\ApiSdk\Exception\ApiClientException
      */
-    public function get(string $shortNumberId, string $transactionId): InMessage
+    public function get(string $shortNumberId, string $transactionId)
     {
         $uri = $this->getResourceUri() . '/' . $shortNumberId . '/' . $transactionId;
         $response = $this->apiClient->request('get', $uri);

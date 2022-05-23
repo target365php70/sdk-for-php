@@ -21,7 +21,7 @@ class OneTimePassword extends AbstractModel
     protected $created;
     protected $delivered;
 
-    protected function attributes(): array
+    protected function attributes()
     {
         return [
             'transactionId',
@@ -41,111 +41,111 @@ class OneTimePassword extends AbstractModel
     /**
      * @return string|null
      */
-    public function getIdentifier(): ?string
+    public function getIdentifier()
     {
         return null;
     }
 
-    public function getTransactionId(): string
+    public function getTransactionId()
     {
         return $this->transactionId;
     }
 
-    public function setTransactionId(string $transactionId): self
+    public function setTransactionId(string $transactionId)
     {
         $this->transactionId = $transactionId;
         return $this;
     }
 
-    public function getMerchantId(): string
+    public function getMerchantId()
     {
         return $this->merchantId;
     }
 
-    public function setMerchantId(string $merchantId): self
+    public function setMerchantId(string $merchantId)
     {
         $this->merchantId = $merchantId;
         return $this;
     }
 
-    public function getRecipient(): string
+    public function getRecipient()
     {
         return $this->recipient;
     }
 
-    public function setRecipient(string $recipient): self
+    public function setRecipient(string $recipient)
     {
         $this->recipient = $recipient;
         return $this;
     }
 
-    public function getSender(): string
+    public function getSender()
     {
         return $this->sender;
     }
 
-    public function setSender(string $sender): self
+    public function setSender(string $sender)
     {
         $this->sender = $sender;
         return $this;
     }
 
-    public function getRecurring(): bool
+    public function getRecurring()
     {
         return $this->recurring;
     }
 
-    public function setRecurring(bool $recurring): self
+    public function setRecurring(bool $recurring)
     {
         $this->recurring = $recurring;
         return $this;
     }
 
-    public function getMessagePrefix(): ?string
+    public function getMessagePrefix()
     {
         return $this->messagePrefix;
     }
 
-    public function setMessagePrefix(?string $messagePrefix): self
+    public function setMessagePrefix($messagePrefix = null)
     {
         $this->messagePrefix = $messagePrefix;
         return $this;
     }
 
-    public function getMessageSuffix(): ?string
+    public function getMessageSuffix()
     {
         return $this->messageSuffix;
     }
 
-    public function setMessageSuffix(?string $messageSuffix): self
+    public function setMessageSuffix($messageSuffix = null)
     {
         $this->messageSuffix = $messageSuffix;
         return $this;
     }
 
-    public function getMessage(): ?string
+    public function getMessage()
     {
         return $this->message;
     }
 
-    public function setMessage(?string $message): self
+    public function setMessage($message = null)
     {
         $this->message = $message;
         return $this;
     }
 
-    public function getTimeToLive(): ?int
+    public function getTimeToLive()
     {
         return $this->timeToLive;
     }
 
-    public function setTimeToLive(?int $timeToLive): self
+    public function setTimeToLive($timeToLive = null)
     {
         $this->timeToLive = $timeToLive;
         return $this;
     }
 
-    public function getCreated(): ?DateTimeAttribute
+    public function getCreated()
     {
         return $this->created;
     }
@@ -155,18 +155,18 @@ class OneTimePassword extends AbstractModel
      * @return OneTimePassword
      * @throws ApiClientException
      */
-    public function setCreated(string $created): self
+    public function setCreated(string $created)
     {
         $this->created = new DateTimeAttribute($created);
         return $this;
     }
 
-    public function getDelivered(): ?bool
+    public function getDelivered()
     {
         return $this->delivered;
     }
 
-    public function setDelivered(?bool $delivered): self
+    public function setDelivered($delivered = null)
     {
         $this->delivered = $delivered;
         return $this;

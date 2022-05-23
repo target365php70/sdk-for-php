@@ -26,7 +26,7 @@ class Lookup extends AbstractModel
     protected $age;
     protected $deceasedDate;
 
-    protected function attributes(): array
+    protected function attributes()
     {
         return [
             'created',
@@ -52,7 +52,7 @@ class Lookup extends AbstractModel
     /**
      * @return string|null
      */
-    public function getIdentifier(): ?string
+    public function getIdentifier()
     {
         return null;
     }
@@ -62,161 +62,161 @@ class Lookup extends AbstractModel
         return $this->created;
     }
 
-    public function setCreated(?string $created): self
+    public function setCreated($created = null)
     {
         $this->created = $created;
         return $this;
     }
 
-    public function getMsisdn(): string
+    public function getMsisdn()
     {
         return $this->msisdn;
     }
 
-    public function setMsisdn(string $msisdn): self
+    public function setMsisdn(string $msisdn)
     {
         $this->msisdn = $msisdn;
         return $this;
     }
 
-    public function getLandline() : ?string
+    public function getLandline()
     {
         return $this->landline;
     }
 
-    public function setLandline(?string $landline): self
+    public function setLandline($landline = null)
     {
         $this->landline = $landline;
         return $this;
     }
 
-    public function getFirstName(): ?string
+    public function getFirstName()
     {
         return $this->firstName;
     }
 
-    public function setFirstName(?string $firstName): self
+    public function setFirstName($firstName = null)
     {
         $this->firstName = $firstName;
         return $this;
     }
 
-    public function getMiddleName(): ?string
+    public function getMiddleName()
     {
         return $this->middleName;
     }
 
-    public function setMiddleName(?string $middleName): self
+    public function setMiddleName($middleName = null)
     {
         $this->middleName = $middleName;
         return $this;
     }
 
-    public function getLastName(): ?string
+    public function getLastName()
     {
         return $this->lastName;
     }
 
-    public function setLastName(?string $lastName): self
+    public function setLastName($lastName = null)
     {
         $this->lastName = $lastName;
         return $this;
     }
 
-    public function getCompanyName(): ?string
+    public function getCompanyName()
     {
         return $this->companyName;
     }
 
-    public function setCompanyName(?string $companyName): self
+    public function setCompanyName($companyName = null)
     {
         $this->companyName = $companyName;
         return $this;
     }
 
-    public function getCompanyOrgNo(): ?string
+    public function getCompanyOrgNo()
     {
         return $this->companyOrgNo;
     }
 
-    public function setCompanyOrgNo(?string $companyOrgNo): self
+    public function setCompanyOrgNo($companyOrgNo = null)
     {
         $this->companyOrgNo = $companyOrgNo;
         return $this;
     }
 
-    public function getStreetName(): ?string
+    public function getStreetName()
     {
         return $this->streetName;
     }
 
-    public function setStreetName(?string $streetName): self
+    public function setStreetName($streetName = null)
     {
         $this->streetName = $streetName;
         return $this;
     }
 
-    public function getStreetNumber(): ?string
+    public function getStreetNumber()
     {
         return $this->streetNumber;
     }
 
-    public function setStreetNumber(?string $streetNumber): self
+    public function setStreetNumber($streetNumber = null)
     {
         $this->streetNumber = $streetNumber;
         return $this;
     }
 
-    public function getStreetLetter(): ?string
+    public function getStreetLetter()
     {
         return $this->streetLetter;
     }
 
-    public function setStreetLetter(?string $streetLetter): self
+    public function setStreetLetter($streetLetter = null)
     {
         $this->streetLetter = $streetLetter;
         return $this;
     }
 
-    public function getZipCode(): ?string
+    public function getZipCode()
     {
         return $this->zipCode;
     }
 
-    public function setZipCode(?string $zipCode): self
+    public function setZipCode($zipCode = null)
     {
         $this->zipCode = $zipCode;
         return $this;
     }
 
-    public function getCity(): ?string
+    public function getCity()
     {
         return $this->city;
     }
 
-    public function setCity(?string $city): self
+    public function setCity($city = null)
     {
         $this->city = $city;
         return $this;
     }
 
-    public function getGender(): string
+    public function getGender()
     {
         return $this->gender;
     }
 
-    public function setGender(string $gender): self
+    public function setGender(string $gender)
     {
         $this->gender = $gender;
         return $this;
     }
 
-    public function getDateOfBirth(): ?string
+    public function getDateOfBirth()
     {
         return $this->dateOfBirth;
     }
 
-    public function setDateOfBirth(?string $dateOfBirth): self
+    public function setDateOfBirth($dateOfBirth = null)
     {
         $this->dateOfBirth = $dateOfBirth;
         return $this;
@@ -227,19 +227,19 @@ class Lookup extends AbstractModel
         return $this->age;
     }
 
-    public function setAge($age): self
+    public function setAge($age)
     {
         $this->age = $age;
 
         return $this;
     }
 
-    public function getDeceasedDate(): ?string
+    public function getDeceasedDate()
     {
         return $this->deceasedDate;
     }
 
-    public function setDeceasedDate(?string $deceasedDate): self
+    public function setDeceasedDate($deceasedDate = null)
     {
         $this->deceasedDate = $deceasedDate;
         return $this;

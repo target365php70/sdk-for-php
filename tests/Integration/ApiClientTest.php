@@ -13,8 +13,9 @@ class ApiClientTest extends AbstractTestCase
      * @throws \InvalidArgumentException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws \Target365\ApiSdk\Exception\ApiClientException
+     * @return void
      */
-    public function testRequest(): void
+    public function testRequest()
     {
         $apiClient = $this->getApiClient();
 
@@ -33,8 +34,9 @@ class ApiClientTest extends AbstractTestCase
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \InvalidArgumentException
      * @throws \Target365\ApiSdk\Exception\ApiClientException
+     * @return void
      */
-    public function testRequestFail(): void
+    public function testRequestFail()
     {
         $this->expectException(\Exception::class);
 

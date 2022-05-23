@@ -10,12 +10,12 @@ use Target365\ApiSdk\Model\StrexMerchant;
 
 class StrexMerchantResource extends AbstractCrudResource
 {
-    protected function getResourceUri(): string
+    protected function getResourceUri()
     {
         return 'strex/merchants';
     }
 
-    protected function getResourceModelFqns(): string
+    protected function getResourceModelFqns()
     {
         return StrexMerchant::class;
     }

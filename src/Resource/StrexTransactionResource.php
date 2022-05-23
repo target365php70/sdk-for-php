@@ -10,22 +10,22 @@ use Target365\ApiSdk\Model\StrexTransaction;
 
 class StrexTransactionResource extends AbstractCrudResource
 {
-    protected function getResourceUri(): string
+    protected function getResourceUri()
     {
         return 'strex/transactions';
     }
 
-    protected function getResourceModelFqns(): string
+    protected function getResourceModelFqns()
     {
         return StrexTransaction::class;
     }
 
-    public function list(): array
+    public function list()
     {
         throw new ResourceMethodNotAvailableException();
     }
 
-    public function put(AbstractModel $model): void
+    public function put(AbstractModel $model)
     {
         throw new ResourceMethodNotAvailableException();
     }
@@ -33,7 +33,7 @@ class StrexTransactionResource extends AbstractCrudResource
     /**
      * @deprecated 1.3.0 Please use reverse instead.
      */
-    public function delete(string $identifier): void
+    public function delete(string $identifier)
     {
         $this->reverse($identifier);
     }
@@ -44,7 +44,7 @@ class StrexTransactionResource extends AbstractCrudResource
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \InvalidArgumentException
      */
-    public function reverse(string $identifier): string
+    public function reverse(string $identifier)
     {
         $uri = $this->getResourceUri() . '/' . $identifier;
         $response = $this->apiClient->request('delete', $uri);

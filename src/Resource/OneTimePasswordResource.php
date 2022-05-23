@@ -10,27 +10,27 @@ use Target365\ApiSdk\Model\OneTimePassword;
 
 class OneTimePasswordResource extends AbstractCrudResource
 {
-    protected function getResourceUri(): string
+    protected function getResourceUri()
     {
         return 'strex/one-time-passwords';
     }
 
-    protected function getResourceModelFqns(): string
+    protected function getResourceModelFqns()
     {
         return OneTimePassword::class;
     }
 
-    public function list(): array
+    public function list()
     {
         throw new ResourceMethodNotAvailableException();
     }
 
-    public function put(AbstractModel $model): void
+    public function put(AbstractModel $model)
     {
         throw new ResourceMethodNotAvailableException();
     }
 
-    public function delete(string $identifier): void
+    public function delete(string $identifier)
     {
         throw new ResourceMethodNotAvailableException();
     }

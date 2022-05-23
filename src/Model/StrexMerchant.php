@@ -10,7 +10,7 @@ class StrexMerchant extends AbstractModel
     protected $shortNumberIds;
     protected $password;
 
-    protected function attributes(): array
+    protected function attributes()
     {
         return [
           'merchantId',
@@ -19,39 +19,39 @@ class StrexMerchant extends AbstractModel
         ];
     }
 
-    public function getIdentifier(): ?string
+    public function getIdentifier()
     {
         return $this->getMerchantId();
     }
 
-    public function getMerchantId(): ?string
+    public function getMerchantId()
     {
         return $this->merchantId;
     }
 
-    public function setMerchantId(?string $merchantId): self
+    public function setMerchantId($merchantId = null)
     {
         $this->merchantId = $merchantId;
         return $this;
     }
 
-    public function getShortNumberIds(): ?array
+    public function getShortNumberIds()
     {
         return $this->shortNumberIds;
     }
 
-    public function setShortNumberIds(?array $shortNumberIds): self
+    public function setShortNumberIds($shortNumberIds = null)
     {
         $this->shortNumberIds = $shortNumberIds;
         return $this;
     }
 
-    public function getPassword(): ?string
+    public function getPassword()
     {
         return $this->password;
     }
 
-    public function setPassword(?string $password): self
+    public function setPassword($password = null)
     {
         $this->password = $password;
         return $this;

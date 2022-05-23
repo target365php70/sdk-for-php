@@ -42,10 +42,10 @@ class Signer
     public function signRequest(
         string $requestMethod,
         string $requestUri,
-        ?string $bodyContents,
+        $bodyContents = '',
         $epochTime,
         string $nonce
-    ): string {
+    ) {
         $epochTime = (string) $epochTime;
         $requestMethod = strtolower($requestMethod);
         $requestUri = strtolower($requestUri);
@@ -61,7 +61,7 @@ class Signer
         return $this->signString($stringToSign);
     }
 
-    public function hashBodyContents(string $bodyContents): string
+    public function hashBodyContents(string $bodyContents)
     {
         $hasher = new Hash();
         $hasher->setHash('sha256');
@@ -75,7 +75,7 @@ class Signer
      * @return string
      * @throws ApiClientException
      */
-    public function signString(string $stringToSign): string
+    public function signString(string $stringToSign)
     {
         $rsa = new RSA();
         $rsa->setHash('sha256');
@@ -103,7 +103,7 @@ class Signer
         $epochTime,
         string $nonce,
         string $signedRequestString
-    ): string {
+    ) {
         $epochTime = (string) $epochTime;
 
         return "HMAC {$authKeyName}:{$epochTime}:{$nonce}:{$signedRequestString}";

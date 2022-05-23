@@ -15,7 +15,7 @@ class Properties implements \ArrayAccess, \IteratorAggregate
         $this->data = $data;
     }
 
-    public function offsetSet($offset, $value): void
+    public function offsetSet($offset, $value)
     {
         if ($offset === null) {
             $this->data[] = $value;
@@ -24,12 +24,12 @@ class Properties implements \ArrayAccess, \IteratorAggregate
         }
     }
 
-    public function offsetExists($offset): bool
+    public function offsetExists($offset)
     {
         return isset($this->data[$offset]);
     }
 
-    public function offsetUnset($offset): void
+    public function offsetUnset($offset)
     {
         unset($this->data[$offset]);
     }
@@ -106,7 +106,7 @@ class Properties implements \ArrayAccess, \IteratorAggregate
      *
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return $this->data;
     }

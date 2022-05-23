@@ -38,7 +38,7 @@ abstract class AbstractTestCase extends TestCase
      *
      * @return mixed Method return.
      */
-    protected function invokePrivateMethod($object, $methodName, array $parameters = array())
+    protected function invokePrivateMethod($object, $methodName, $parameters = array())
     {
         $reflection = new \ReflectionClass(get_class($object));
         $method = $reflection->getMethod($methodName);
@@ -58,7 +58,7 @@ abstract class AbstractTestCase extends TestCase
      *
      * @return mixed Method return.
      */
-    protected function invokePrivateStaticMethod(string $fqcn, $methodName, array $parameters = array())
+    protected function invokePrivateStaticMethod($fqcn, $methodName, $parameters = array())
     {
         $reflection = new \ReflectionClass($fqcn);
         $method = $reflection->getMethod($methodName);

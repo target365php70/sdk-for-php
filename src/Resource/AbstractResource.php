@@ -16,9 +16,9 @@ abstract class AbstractResource
      */
     protected $apiClient;
 
-    abstract protected function getResourceUri(): string;
+    abstract protected function getResourceUri();
 
-    abstract protected function getResourceModelFqns(): string;
+    abstract protected function getResourceModelFqns();
 
     public function __construct(ApiClient $apiClient)
     {
@@ -31,7 +31,7 @@ abstract class AbstractResource
      * @param AbstractModel $model
      * @throws ApiClientException
      */
-    protected function forceResourceModel(AbstractModel $model): void
+    protected function forceResourceModel(AbstractModel $model)
     {
         if (!is_a($model, $this->getResourceModelFqns())) {
             throw new ApiClientException('You must pass instance of ' . $this->getResourceModelFqns());
@@ -43,7 +43,7 @@ abstract class AbstractResource
      * @return array
      * @throws \InvalidArgumentException
      */
-    protected function decodeResponseJson(ResponseInterface $response): array
+    protected function decodeResponseJson(ResponseInterface $response)
     {
         return \GuzzleHttp\json_decode($response->getBody()->__toString(), true);
     }
@@ -53,13 +53,13 @@ abstract class AbstractResource
      * @return string
      * @throws \InvalidArgumentException
      */
-    protected function decodeResponseJsonString(ResponseInterface $response): ?string
+    protected function decodeResponseJsonString(ResponseInterface $response)
     {
         $json = '{"result":' . $response->getBody()->__toString(). '}';
         return \GuzzleHttp\json_decode($json, true)['result'];
     }
 
-    protected function instantiateModel(array $data): AbstractModel
+    protected function instantiateModel(array $data)
     {
         $fqns = $this->getResourceModelFqns();
         $model = new $fqns();
@@ -67,7 +67,7 @@ abstract class AbstractResource
         return $model;
     }
 
-    protected function parseIdentifierFromLocationHeader(string $locationHeader): string
+    protected function parseIdentifierFromLocationHeader(string $locationHeader)
     {
         // https://test.target365.io/api/keywords/111
         $chunks = explode('/', $locationHeader);

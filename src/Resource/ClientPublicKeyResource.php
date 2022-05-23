@@ -10,12 +10,12 @@ use Target365\ApiSdk\Model\PublicKey;
 
 class ClientPublicKeyResource extends AbstractCrudResource
 {
-    protected function getResourceUri(): string
+    protected function getResourceUri()
     {
         return 'client/public-keys';
     }
 
-    protected function getResourceModelFqns(): string
+    protected function getResourceModelFqns()
     {
         return PublicKey::class;
     }
@@ -25,7 +25,7 @@ class ClientPublicKeyResource extends AbstractCrudResource
         throw new ResourceMethodNotAvailableException();
     }
 
-    public function put(AbstractModel $model): void
+    public function put(AbstractModel $model)
     {
         throw new ResourceMethodNotAvailableException();
     }

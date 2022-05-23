@@ -10,12 +10,12 @@ use Target365\ApiSdk\Model\PublicKey;
 
 class ServerPublicKeyResource extends AbstractCrudResource
 {
-    protected function getResourceUri(): string
+    protected function getResourceUri()
     {
         return 'server/public-keys';
     }
 
-    protected function getResourceModelFqns(): string
+    protected function getResourceModelFqns()
     {
         return PublicKey::class;
     }
@@ -25,7 +25,7 @@ class ServerPublicKeyResource extends AbstractCrudResource
         throw new ResourceMethodNotAvailableException();
     }
 
-    public function put(AbstractModel $model): void
+    public function put(AbstractModel $model)
     {
         throw new ResourceMethodNotAvailableException();
     }
@@ -34,7 +34,7 @@ class ServerPublicKeyResource extends AbstractCrudResource
      * @return array
      * @throws ResourceMethodNotAvailableException
      */
-    public function list(): array
+    public function list()
     {
         throw new ResourceMethodNotAvailableException();
     }
@@ -43,7 +43,7 @@ class ServerPublicKeyResource extends AbstractCrudResource
      * @param string $identifier
      * @throws ResourceMethodNotAvailableException
      */
-    public function delete(string $identifier): void
+    public function delete(string $identifier)
     {
         throw new ResourceMethodNotAvailableException();
     }

@@ -9,7 +9,6 @@ use Target365\ApiSdk\Attribute\DateTimeAttribute;
 class OutMessage extends AbstractModel implements DynamicPropertiesInterface
 {
     protected $transactionId;
-    protected $sessionId;
     protected $correlationId;
     protected $keywordId;
     protected $sender;
@@ -26,7 +25,6 @@ class OutMessage extends AbstractModel implements DynamicPropertiesInterface
     protected $smscTransactionId;
     protected $detailedStatusCode;
     protected $delivered;
-    protected $operatorId;
     protected $smscMessageParts;
     protected $tags;
     protected $properties;
@@ -40,7 +38,7 @@ class OutMessage extends AbstractModel implements DynamicPropertiesInterface
      * @param bool $unicode
      * @return int
      */
-    public static function getSmsPartsForText(string $text, ?bool $unicode = null): int
+    public static function getSmsPartsForText(string $text, $unicode = null)
     {
         if ($unicode === true) {
             return (strlen($text) <= 70) ? 1 : (int)ceil(strlen($text) / 67);
@@ -82,11 +80,10 @@ class OutMessage extends AbstractModel implements DynamicPropertiesInterface
         return $parts;
     }
     
-    protected function attributes(): array
+    protected function attributes()
     {
         return [
             'transactionId',
-            'sessionId',
             'correlationId',
             'keywordId',
             'sender',
@@ -111,116 +108,105 @@ class OutMessage extends AbstractModel implements DynamicPropertiesInterface
         ];
     }
     
-    public function getIdentifier(): ?string
+    public function getIdentifier()
     {
         return $this->getTransactionId();
     }
 
-    public function getSmsParts() : int
+    public function getSmsParts()
     {
         return OutMessage::getSmsPartsForText($this->getContent() ?? '', $this->getAllowUnicode());
     }
     
-    public function getTransactionId(): ?string
+    public function getTransactionId()
     {
         return $this->transactionId;
     }
 
-    public function setTransactionId(?string $transactionId): self
+    public function setTransactionId($transactionId = null)
     {
         $this->transactionId = $transactionId;
         return $this;
     }
 
-    public function getCorrelationId(): ?string
+    public function getCorrelationId()
     {
         return $this->correlationId;
     }
 
-    public function setCorrelationId(?string $correlationId): self
+    public function setCorrelationId($correlationId = null)
     {
         $this->correlationId = $correlationId;
         return $this;
     }
 
-    public function getSessionId(): ?string
-    {
-        return $this->sessionId;
-    }
-
-    public function setSessionId(?string $sessionId): self
-    {
-        $this->sessionId = $sessionId;
-        return $this;
-    }
-
-    public function getKeywordId(): ?string
+    public function getKeywordId()
     {
         return $this->keywordId;
     }
 
-    public function setKeywordId(?string $keywordId): self
+    public function setKeywordId($keywordId = null)
     {
         $this->keywordId = $keywordId;
         return $this;
     }
 
-    public function getSender(): string
+    public function getSender()
     {
         return $this->sender;
     }
 
-    public function setSender(string $sender): self
+    public function setSender(string $sender)
     {
         $this->sender = $sender;
         return $this;
     }
 
-    public function getRecipient(): string
+    public function getRecipient()
     {
         return $this->recipient;
     }
 
-    public function setRecipient(string $recipient): self
+    public function setRecipient(string $recipient)
     {
         $this->recipient = $recipient;
         return $this;
     }
 
-    public function getContent(): ?string
+    public function getContent()
     {
         return $this->content;
     }
 
-    public function setContent(?string $content): self
+    public function setContent($content = null)
     {
         $this->content = $content;
         return $this;
     }
 
-    public function getStrex(): ?StrexData
+    public function getStrex()
     {
         return $this->strex;
     }
 
-    public function setStrex(?StrexData $strex): self
+    public function setStrex($strex = null)
     {
         $this->strex = $strex;
         return $this;
     }
 
-    public function getAllowUnicode(): ?bool
+    public function getAllowUnicode()
     {
         return $this->allowUnicode;
     }
 
-    public function setAllowUnicode(?bool $allowUnicode): self
+    public function setAllowUnicode($allowUnicode = null)
     {
         $this->allowUnicode = $allowUnicode;
         return $this;
     }
     
-    public function getSendTime(): ?DateTimeAttribute
+    public function getSendTime()
     {
         return $this->sendTime;
     }
@@ -230,145 +216,134 @@ class OutMessage extends AbstractModel implements DynamicPropertiesInterface
      * @return OutMessage
      * @throws \Target365\ApiSdk\Exception\ApiClientException
      */
-    public function setSendTime(string $sendTime): self
+    public function setSendTime(string $sendTime)
     {
         $this->sendTime = new DateTimeAttribute($sendTime);
         return $this;
     }
 
-    public function getTimeToLive(): ?int
+    public function getTimeToLive()
     {
         return $this->timeToLive;
     }
 
-    public function setTimeToLive(?int $timeToLive): self
+    public function setTimeToLive($timeToLive = null)
     {
         $this->timeToLive = $timeToLive;
         return $this;
     }
 
-    public function getPriority(): ?string
+    public function getPriority()
     {
         return $this->priority;
     }
 
-    public function setPriority(?string $priority): self
+    public function setPriority($priority = null)
     {
         $this->priority = $priority;
         return $this;
     }
 
-    public function getDeliveryMode(): ?string
+    public function getDeliveryMode()
     {
         return $this->deliveryMode;
     }
 
-    public function setDeliveryMode(?string $deliveryMode): self
+    public function setDeliveryMode($deliveryMode = null)
     {
         $this->deliveryMode = $deliveryMode;
         return $this;
     }
 
-    public function getDeliveryReportUrl(): ?string
+    public function getDeliveryReportUrl()
     {
         return $this->deliveryReportUrl;
     }
 
-    public function setDeliveryReportUrl(?string $deliveryReportUrl): self
+    public function setDeliveryReportUrl($deliveryReportUrl = null)
     {
         $this->deliveryReportUrl = $deliveryReportUrl;
         return $this;
     }
 
-    public function getStatusCode(): ?string
+    public function getStatusCode()
     {
         return $this->statusCode;
     }
 
-    public function setStatusCode(?string $statusCode): self
+    public function setStatusCode($statusCode = null)
     {
         $this->statusCode = $statusCode;
         return $this;
     }
 
-    public function getSmscTransactionId(): ?string
+    public function getSmscTransactionId()
     {
         return $this->smscTransactionId;
     }
 
-    public function setSmscTransactionId(?string $smscTransactionId): self
+    public function setSmscTransactionId($smscTransactionId = null)
     {
         $this->smscTransactionId = $smscTransactionId;
         return $this;
     }
 
-    public function getDetailedStatusCode(): ?string
+    public function getDetailedStatusCode()
     {
         return $this->detailedStatusCode;
     }
 
-    public function setDetailedStatusCode(?string $detailedStatusCode): self
+    public function setDetailedStatusCode($detailedStatusCode = null)
     {
         $this->detailedStatusCode = $detailedStatusCode;
         return $this;
     }
 
-    public function getDelivered(): ?bool
+    public function getDelivered()
     {
         return $this->delivered;
     }
 
-    public function setDelivered(?bool $delivered): self
+    public function setDelivered($delivered = null)
     {
         $this->delivered = $delivered;
         return $this;
     }
 
-    public function getOperatorId(): ?string
-    {
-        return $this->operatorId;
-    }
-
-    public function setOperatorId(?string $operatorId): self
-    {
-        $this->operatorId = $operatorId;
-        return $this;
-    }
-
-    public function getSmscMessageParts(): ?int
+    public function getSmscMessageParts()
     {
         return $this->smscMessageParts;
     }
 
-    public function setSmscMessageParts(int $smscMessageParts): self
+    public function setSmscMessageParts(int $smscMessageParts)
     {
         $this->smscMessageParts = $smscMessageParts;
         return $this;
     }
 
-    public function getTags(): ?array
+    public function getTags()
     {
         return $this->tags;
     }
 
-    public function setTags(?array $tags): self
+    public function setTags($tags = null)
     {
         $this->tags = $tags;
         return $this;
     }
 
-    public function getProperties(): ?Properties
+    public function getProperties()
     {
         return $this->properties;
     }
 
-    public function setProperties(?Properties $properties): self
+    public function setProperties($properties = null)
     {
         $this->properties = $properties;
         return $this;
     }
 
-    public function getLastModified(): ?DateTimeAttribute
+    public function getLastModified()
     {
         return $this->lastModified;
     }
@@ -378,13 +353,13 @@ class OutMessage extends AbstractModel implements DynamicPropertiesInterface
      * @return OutMessage
      * @throws \Target365\ApiSdk\Exception\ApiClientException
      */
-    public function setLastModified(string $lastModified): self
+    public function setLastModified(string $lastModified)
     {
         $this->lastModified = new DateTimeAttribute($lastModified);
         return $this;
     }
 
-    public function getCreated(): ?DateTimeAttribute
+    public function getCreated()
     {
         return $this->created;
     }
@@ -394,7 +369,7 @@ class OutMessage extends AbstractModel implements DynamicPropertiesInterface
      * @return OutMessage
      * @throws \Target365\ApiSdk\Exception\ApiClientException
      */
-    public function setCreated(string $created): self
+    public function setCreated(string $created)
     {
         $this->created = new DateTimeAttribute($created);
         return $this;

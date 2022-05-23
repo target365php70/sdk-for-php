@@ -11,7 +11,7 @@ class StrexRegistrationSms extends AbstractModel
     protected $recipient;
     protected $smsText;
 
-    protected function attributes(): array
+    protected function attributes()
     {
         return [
             'merchantId',
@@ -24,50 +24,50 @@ class StrexRegistrationSms extends AbstractModel
     /**
      * @return string|null
      */
-    public function getIdentifier(): ?string
+    public function getIdentifier()
     {
         return $this->transactionId;
     }
 
-    public function getTransactionId(): string
+    public function getTransactionId()
     {
         return $this->transactionId;
     }
 
-    public function setTransactionId(string $transactionId): self
+    public function setTransactionId(string $transactionId)
     {
         $this->transactionId = $transactionId;
         return $this;
     }
 
-    public function getMerchantId(): string
+    public function getMerchantId()
     {
         return $this->merchantId;
     }
 
-    public function setMerchantId(string $merchantId): self
+    public function setMerchantId(string $merchantId)
     {
         $this->merchantId = $merchantId;
         return $this;
     }
 
-    public function getRecipient(): string
+    public function getRecipient()
     {
         return $this->recipient;
     }
     
-    public function setRecipient(string $recipient): self
+    public function setRecipient(string $recipient)
     {
         $this->recipient = $recipient;
         return $this;
     }
 
-    public function getSmsText(): ?string
+    public function getSmsText()
     {
         return $this->smsText;
     }
 
-    public function setSmsText(string $smsText): self
+    public function setSmsText(string $smsText)
     {
         $this->smsText = $smsText;
         return $this;

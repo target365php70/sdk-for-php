@@ -24,8 +24,9 @@ class SignerTest extends AbstractTestCase
     /**
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws \Target365\ApiSdk\Exception\ApiClientException
+     * @return void
      */
-    public function testGetAuthHeader(): void
+    public function testGetAuthHeader()
     {
         $signer = new Signer($this->secrets->getPrivateKey());
 
@@ -45,8 +46,9 @@ class SignerTest extends AbstractTestCase
     /**
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws \Target365\ApiSdk\Exception\ApiClientException
+     * @return void
      */
-    public function testSignString(): void
+    public function testSignString()
     {
         $signer = new Signer($this->secrets->getPrivateKey());
 

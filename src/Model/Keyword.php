@@ -6,7 +6,7 @@ namespace Target365\ApiSdk\Model;
 
 use Target365\ApiSdk\Attribute\DateTimeAttribute;
 
-class Keyword extends AbstractModel implements DynamicPropertiesInterface
+class Keyword extends AbstractModel
 {
     protected $keywordId;
     protected $shortNumberId;
@@ -16,11 +16,9 @@ class Keyword extends AbstractModel implements DynamicPropertiesInterface
     protected $enabled;
     protected $created;
     protected $lastModified;
-    protected $customProperties;
     protected $tags;
-    protected $aliases;
 
-    public function attributes(): array
+    public function attributes()
     {
         return [
           'keywordId',
@@ -31,136 +29,122 @@ class Keyword extends AbstractModel implements DynamicPropertiesInterface
           'enabled',
           'created',
           'lastModified',
-          'customProperties',
           'tags',
-          'aliases',
         ];
     }
 
-    public function getIdentifier(): ?string
+    public function getIdentifier()
     {
         return $this->getKeywordId();
     }
 
-    public function getKeywordId() : ?string
+    public function getKeywordId()
     {
         return $this->keywordId;
     }
 
-    public function setKeywordId(string $keywordId): self
+    public function setKeywordId(string $keywordId)
     {
         $this->keywordId = $keywordId;
         return $this;
     }
 
-    public function getShortNumberId(): string
+    public function getShortNumberId()
     {
         return $this->shortNumberId;
     }
 
-    public function setShortNumberId(string $shortNumberId): self
+    public function setShortNumberId(string $shortNumberId)
     {
         $this->shortNumberId = $shortNumberId;
         return $this;
     }
 
-    public function getKeywordText(): string
+    public function getKeywordText()
     {
         return $this->keywordText;
     }
 
-    public function setKeywordText(string $keywordText): self
+    public function setKeywordText(string $keywordText)
     {
         $this->keywordText = $keywordText;
         return $this;
     }
 
-    public function getMode(): string
+    public function getMode()
     {
         return $this->mode;
     }
 
-    public function setMode(string $mode): self
+    public function setMode(string $mode)
     {
         $this->mode = $mode;
 
         return $this;
     }
 
-    public function getForwardUrl(): string
+    public function getForwardUrl()
     {
         return $this->forwardUrl;
     }
 
-    public function setForwardUrl(string $forwardUrl): self
+    public function setForwardUrl(string $forwardUrl)
     {
         $this->forwardUrl = $forwardUrl;
         return $this;
     }
 
-    public function getEnabled(): bool
+    public function getEnabled()
     {
         return $this->enabled;
     }
 
-    public function setEnabled(bool $enabled): self
+    public function setEnabled(bool $enabled)
     {
         $this->enabled = $enabled;
         return $this;
     }
 
-    public function getCreated(): ?DateTimeAttribute
+    public function getCreated()
     {
         return $this->created;
     }
 
-    public function setCreated(string $created): self
+    /**
+     * @param string $created
+     * @return Keyword
+     * @throws \Target365\ApiSdk\Exception\ApiClientException
+     */
+    public function setCreated(string $created)
     {
         $this->created = new DateTimeAttribute($created);
         return $this;
     }
 
-    public function getLastModified(): ?DateTimeAttribute
+    public function getLastModified()
     {
         return $this->lastModified;
     }
 
-    public function setLastModified(string $lastModified): self
+    /**
+     * @param string $lastModified
+     * @return Keyword
+     * @throws \Target365\ApiSdk\Exception\ApiClientException
+     */
+    public function setLastModified(string $lastModified)
     {
         $this->lastModified = new DateTimeAttribute($lastModified);
         return $this;
     }
 
-    public function getProperties(): ?Properties
-    {
-        return $this->customProperties;
-    }
-
-    public function setProperties(?Properties $customProperties): self
-    {
-        $this->customProperties = $customProperties;
-        return $this;
-    }
-
-    public function getTags(): ?array
+    public function getTags()
     {
         return $this->tags;
     }
 
-    public function setTags(?array $tags): self
+    public function setTags($tags = null)
     {
         $this->tags = $tags;
-        return $this;
-    }
-
-    public function getAliases(): ?array
-    {
-        return $this->aliases;
-    }
-
-    public function setAliases(?array $aliases): self
-    {
-        $this->aliases = $aliases;
         return $this;
     }
 }

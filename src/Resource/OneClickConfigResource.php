@@ -10,17 +10,17 @@ use Target365\ApiSdk\Model\OneClickConfig;
 
 class OneClickConfigResource extends AbstractCrudResource
 {
-    protected function getResourceUri(): string
+    protected function getResourceUri()
     {
         return 'one-click/configs';
     }
 
-    protected function getResourceModelFqns(): string
+    protected function getResourceModelFqns()
     {
         return OneClickConfig::class;
     }
 
-    public function list(): array
+    public function list()
     {
         throw new ResourceMethodNotAvailableException();
     }
@@ -30,7 +30,7 @@ class OneClickConfigResource extends AbstractCrudResource
         throw new ResourceMethodNotAvailableException();
     }
 
-    public function delete(string $identifier): void
+    public function delete(string $identifier)
     {
         throw new ResourceMethodNotAvailableException();    
 		}

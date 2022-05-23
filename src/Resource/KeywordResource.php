@@ -8,12 +8,12 @@ use Target365\ApiSdk\Model\Keyword;
 
 class KeywordResource extends AbstractCrudResource
 {
-    protected function getResourceUri(): string
+    protected function getResourceUri()
     {
         return 'keywords';
     }
 
-    protected function getResourceModelFqns(): string
+    protected function getResourceModelFqns()
     {
         return Keyword::class;
     }
@@ -23,7 +23,7 @@ class KeywordResource extends AbstractCrudResource
         string $keywordText = null,
         string $mode = null,
         string $tag = null
-    ): array {
+    ) {
         $queryStringData = [
             'shortNumberId' => $shortNumberId,
             'keywordText' => $keywordText,

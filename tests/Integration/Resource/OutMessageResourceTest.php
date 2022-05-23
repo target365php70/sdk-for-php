@@ -164,8 +164,9 @@ class OutMessageResourceTest extends AbstractTestCase
 
     /**
      * @depends testGet
+     * @param \Target365\ApiSdk\Model\OutMessage $outMessage
      */
-    public function testPut(OutMessage $outMessage)
+    public function testPut($outMessage)
     {
         $apiClient = $this->getApiClient();
 
@@ -185,8 +186,9 @@ class OutMessageResourceTest extends AbstractTestCase
 
     /**
      * @depends testPut
+     * @param \Target365\ApiSdk\Model\OutMessage $outMessage
      */
-    public function testDelete(OutMessage $outMessage)
+    public function testDelete($outMessage)
     {
         $apiClient = $this->getApiClient();
 
@@ -199,8 +201,9 @@ class OutMessageResourceTest extends AbstractTestCase
 
     /**
      * @depends testDelete
+     * @param \Target365\ApiSdk\Model\OutMessage $outMessage
      */
-    public function testConfirmDelete(OutMessage $outMessage)
+    public function testConfirmDelete($outMessage)
     {
         $this->expectException(\Exception::class);
 
@@ -244,13 +247,14 @@ class OutMessageResourceTest extends AbstractTestCase
 
     /**
      * @depends testSendScheduledSMS
-     * @param OutMessage $outMessage
+     * @param \Target365\ApiSdk\Model\OutMessage $outMessage
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \InvalidArgumentException
      * @throws \Target365\ApiSdk\Exception\ApiClientException
      * @throws \Exception
+     * @return void
      */
-    public function testUpdateScheduledOutMessage(OutMessage $outMessage): void
+    public function testUpdateScheduledOutMessage($outMessage)
     {
         $outMessage->getSendTime()->add(\DateInterval::createFromDateString('10 minutes'));
         $apiClient = $this->getApiClient();

@@ -15,8 +15,6 @@ class InMessage extends AbstractModel
     protected $recipient;
     protected $content;
     protected $isStopMessage;
-    protected $processAttempts;
-    protected $processed;
     protected $created;
     protected $tags;
     protected $properties;
@@ -28,7 +26,7 @@ class InMessage extends AbstractModel
      * @throws \RuntimeException If the POST data is absent, or not a valid JSON document
      * @throws \InvalidArgumentException
      */
-    public static function fromRawPostData(): InMessage
+    public static function fromRawPostData()
     {
         // Read the raw POST data and JSON-decode it into a message.
         return self::fromJsonString(file_get_contents('php://input'));
@@ -41,7 +39,7 @@ class InMessage extends AbstractModel
      * @return InMessage
      * @throws \InvalidArgumentException
      */
-    public static function fromPsrRequest(RequestInterface $request): InMessage
+    public static function fromPsrRequest(RequestInterface $request)
     {
         return self::fromJsonString($request->getBody()->getContents());
     }
@@ -53,7 +51,7 @@ class InMessage extends AbstractModel
      * @return InMessage
      * @throws \InvalidArgumentException
      */
-    public static function fromJsonString(string $json): InMessage
+    public static function fromJsonString(string $json)
     {
         $data = \GuzzleHttp\json_decode($json, true);
         $inMessage = new self();
@@ -61,7 +59,7 @@ class InMessage extends AbstractModel
         return $inMessage;
     }
     
-    protected function attributes(): array
+    protected function attributes()
     {
         return [
             'transactionId',
@@ -70,108 +68,84 @@ class InMessage extends AbstractModel
             'recipient',
             'content',
             'isStopMessage',
-            'processAttempts',
-            'processed',
             'created',
             'tags',
             'properties',
         ];
     }
 
-    public function getIdentifier(): string
+    public function getIdentifier()
     {
         return $this->getTransactionId();
     }
 
-    public function getTransactionId(): string
+    public function getTransactionId()
     {
         return $this->transactionId;
     }
 
-    public function setTransactionId(string $transactionId): self
+    public function setTransactionId(string $transactionId)
     {
         $this->transactionId = $transactionId;
         return $this;
     }
 
-    public function getSender(): string
+    public function getSender()
     {
         return $this->sender;
     }
 
-    public function setSender(string $sender): self
+    public function setSender(string $sender)
     {
         $this->sender = $sender;
         return $this;
     }
 
-    public function getRecipient(): string
+    public function getRecipient()
     {
         return $this->recipient;
     }
 
-    public function setRecipient(string $recipient): self
+    public function setRecipient(string $recipient)
     {
         $this->recipient = $recipient;
         return $this;
     }
 
-    public function getContent(): string
+    public function getContent()
     {
         return $this->content;
     }
 
-    public function setContent(string $content): self
+    public function setContent(string $content)
     {
         $this->content = $content;
         return $this;
     }
 
-    public function getKeywordId(): ?string
+    public function getKeywordId()
     {
         return $this->keywordId;
     }
 
-    public function setKeywordId(?string $keywordId): self
+    public function setKeywordId($keywordId = null)
     {
         $this->keywordId = $keywordId;
         return $this;
     }
 
-    public function getIsStopMessage(): bool
+    public function getIsStopMessage()
     {
         return $this->isStopMessage;
     }
 
-    public function setIsStopMessage(bool $isStopMessage): self
+    public function setIsStopMessage(bool $isStopMessage)
     {
         $this->isStopMessage = $isStopMessage;
         return $this;
     }
 
-    public function getProcessAttempts(): int
-    {
-        return $this->processAttempts;
-    }
-
-    public function setProcessAttempts(int $processAttempts): self
-    {
-        $this->processAttempts = $processAttempts;
-        return $this;
-    }
-
-    public function getProcessed(): bool
-    {
-        return $this->processed;
-    }
-
-    public function setProcessed(bool $processed): self
-    {
-        $this->processed = $processed;
-        return $this;
-    }
-
-    public function getCreated(): ?DateTimeAttribute
+    public function getCreated()
     {
         return $this->created;
     }
@@ -181,29 +155,29 @@ class InMessage extends AbstractModel
      * @return InMessage
      * @throws \Target365\ApiSdk\Exception\ApiClientException
      */
-    public function setCreated(string $created): self
+    public function setCreated(string $created)
     {
         $this->created = new DateTimeAttribute($created);
         return $this;
     }
 
-    public function getProperties(): ?array
+    public function getProperties()
     {
         return $this->properties;
     }
 
-    public function setProperties(array $properties = null): self
+    public function setProperties(array $properties = null)
     {
         $this->properties = $properties;
         return $this;
     }
 
-    public function getTags(): ?array
+    public function getTags()
     {
         return $this->tags;
     }
 
-    public function setTags(?array $tags): self
+    public function setTags($tags = null)
     {
         $this->tags = $tags;
         return $this;

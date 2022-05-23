@@ -65,12 +65,12 @@ class ApiClient
         return $domainUri;
     }
 
-    protected function getSigner(): Signer
+    protected function getSigner()
     {
         return $this->signer;
     }
 
-    protected function getLogger(): ?LoggerInterface
+    protected function getLogger()
     {
         return $this->logger;
     }
@@ -97,57 +97,57 @@ class ApiClient
         }
     }
 
-    public function lookupResource(): LookupResource
+    public function lookupResource()
     {
         return $this->resources['lookup'];
     }
 
-    public function keywordResource(): KeywordResource
+    public function keywordResource()
     {
         return $this->resources['keyword'];
     }
 
-    public function outMessageResource(): OutMessageResource
+    public function outMessageResource()
     {
         return $this->resources['outMessage'];
     }
 
-    public function inMessageResource(): InMessageResource
+    public function inMessageResource()
     {
         return $this->resources['inMessage'];
     }
 
-    public function strexMerchantResource(): StrexMerchantResource
+    public function strexMerchantResource()
     {
         return $this->resources['strexMerchant'];
     }
 
-    public function strexTransactionResource(): StrexTransactionResource
+    public function strexTransactionResource()
     {
         return $this->resources['strexTransaction'];
     }
 
-    public function oneTimePasswordResource(): OneTimePasswordResource
+    public function oneTimePasswordResource()
     {
         return $this->resources['oneTimePassword'];
     }
 
-    public function clientPublicKeyResource(): ClientPublicKeyResource
+    public function clientPublicKeyResource()
     {
         return $this->resources['clientPublicKey'];
     }
 
-    public function serverPublicKeyResource(): ServerPublicKeyResource
+    public function serverPublicKeyResource()
     {
         return $this->resources['serverPublicKey'];
     }
 
-    public function oneClickConfigResource(): OneClickConfigResource
+    public function oneClickConfigResource()
     {
         return $this->resources['oneClickConfig'];
     }
 
-    public function strexRegistrationResource(): StrexRegistrationResource
+    public function strexRegistrationResource()
     {
         return $this->resources['strexRegistration'];
     }
@@ -173,7 +173,7 @@ class ApiClient
         string $requestMethod,
         string $requestUriPath,
         array $bodyData = null
-    ): ResponseInterface {
+    ) {
         $requestUri = $this->baseUri . $requestUriPath;
 
         $signer = $this->getSigner();
@@ -241,7 +241,7 @@ class ApiClient
      * @return \GuzzleHttp\Client
      * @throws \InvalidArgumentException
      */
-    protected function getHttpClient(): \GuzzleHttp\Client
+    protected function getHttpClient()
     {
         $options = [
         ];

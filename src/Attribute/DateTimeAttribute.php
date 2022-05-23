@@ -8,7 +8,7 @@ use Target365\ApiSdk\Exception\ApiClientException;
 
 class DateTimeAttribute extends \DateTime
 {
-    protected const DATE_TIME_FORMAT = \DateTime::ATOM; // This is IS08601 format which is used by the API
+    const DATE_TIME_FORMAT = \DateTime::ATOM; // This is IS08601 format which is used by the API
 
     /**
      * @param string $iso8601dateTime ISO8601 datetime string, possibly with fractional seconds
@@ -28,7 +28,7 @@ class DateTimeAttribute extends \DateTime
     }
 
 
-    public function __toString(): string
+    public function __toString()
     {
         return $this->format(self::DATE_TIME_FORMAT);
     }
@@ -40,7 +40,7 @@ class DateTimeAttribute extends \DateTime
      * @return string
      * @throws ApiClientException
      */
-    protected function normalizeIso8601(string $iso8601dateTime): string
+    protected function normalizeIso8601(string $iso8601dateTime)
     {
         //String might include fractional seconds, discard fractional seconds.
         $pattern = '~(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2})\\.\\d{1,9}([-+]\\d{2}:\\d{2})~';
@@ -59,7 +59,7 @@ class DateTimeAttribute extends \DateTime
         }
 
         if ($tempDateTime->getTimezone()->getName() !== '+00:00') {
-            throw new ApiClientException('the input datetime string should be in timezone +00:00');
+            //throw new ApiClientException('the input datetime string should be in timezone +00:00');
         }
 
         return $iso8601dateTime;

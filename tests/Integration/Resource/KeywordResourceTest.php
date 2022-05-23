@@ -72,8 +72,9 @@ class KeywordResourceTest extends AbstractTestCase
 
     /**
      * @depends testGet
+     * @param \Target365\ApiSdk\Model\Keyword $keyword
      */
-    public function testPut(Keyword $keyword)
+    public function testPut($keyword)
     {
         $apiClient = $this->getApiClient();
 
@@ -93,8 +94,9 @@ class KeywordResourceTest extends AbstractTestCase
 
     /**
      * @depends testPut
+     * @param \Target365\ApiSdk\Model\Keyword $keyword
      */
-    public function testDelete(Keyword $keyword)
+    public function testDelete($keyword)
     {
         $apiClient = $this->getApiClient();
 
@@ -107,8 +109,9 @@ class KeywordResourceTest extends AbstractTestCase
 
     /**
      * @depends testDelete
+     * @param \Target365\ApiSdk\Model\Keyword $keyword
      */
-    public function testConfirmDelete(Keyword $keyword)
+    public function testConfirmDelete($keyword)
     {
         $this->expectException(\Exception::class);
 

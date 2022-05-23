@@ -12,12 +12,12 @@ abstract class AbstractCrudResource extends AbstractResource
     /**
      * GET /{resource}
      */
-    public function list(): array
+    public function list()
     {
         return $this->listBase();
     }
 
-    protected function listBase(array $queryStringData = []): array
+    protected function listBase(array $queryStringData = [])
     {
         $uri = $this->getResourceUri();
 
@@ -45,7 +45,7 @@ abstract class AbstractCrudResource extends AbstractResource
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \InvalidArgumentException
      */
-    public function get(string $identifier): AbstractModel
+    public function get(string $identifier)
     {
         $uri = $this->getResourceUri() . '/' . $identifier;
         $response = $this->apiClient->request('get', $uri);
@@ -81,7 +81,7 @@ abstract class AbstractCrudResource extends AbstractResource
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \InvalidArgumentException
      */
-    public function put(AbstractModel $model): void
+    public function put(AbstractModel $model)
     {
         $this->forceResourceModel($model);
 
@@ -102,7 +102,7 @@ abstract class AbstractCrudResource extends AbstractResource
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \InvalidArgumentException
      */
-    public function delete(string $identifier): void
+    public function delete(string $identifier)
     {
         $uri = $this->getResourceUri() . '/' . $identifier;
         $this->apiClient->request('delete', $uri);

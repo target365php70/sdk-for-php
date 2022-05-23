@@ -54,8 +54,9 @@ class StrexTransactionResourceTest extends AbstractTestCase
 
     /**
      * @depends testGet
+     * @param \Target365\ApiSdk\Model\StrexTransaction $strexTransaction
      */
-    public function testReverse(StrexTransaction $strexTransaction)
+    public function testReverse($strexTransaction)
     {
         $apiClient = $this->getApiClient();
 
@@ -68,8 +69,9 @@ class StrexTransactionResourceTest extends AbstractTestCase
 
     /**
      * @depends testReverse
+     * @param string $reversalId
      */
-    public function testConfirmReversed(string $reversalId)
+    public function testConfirmReversed($reversalId)
     {
         $apiClient = $this->getApiClient();
 

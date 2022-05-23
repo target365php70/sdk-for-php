@@ -10,17 +10,17 @@ use Target365\ApiSdk\Attribute\DateTimeAttribute;
 
 class OutMessageResource extends AbstractCrudResource
 {
-    protected function getResourceUri(): string
+    protected function getResourceUri()
     {
         return 'out-messages';
     }
 
-    protected function getResourceModelFqns(): string
+    protected function getResourceModelFqns()
     {
         return OutMessage::class;
     }
 
-    public function list(): array
+    public function list()
     {
         throw new ResourceMethodNotAvailableException();
     }
@@ -40,7 +40,7 @@ class OutMessageResource extends AbstractCrudResource
      * @throws \InvalidArgumentException
      * @throws \Target365\ApiSdk\Exception\ApiClientException
      */
-    public function postBatch(array $outMessages): void
+    public function postBatch(array $outMessages)
     {
         $uri = 'out-messages/batch';
 

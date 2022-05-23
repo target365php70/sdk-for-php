@@ -8,18 +8,18 @@ use Target365\ApiSdk\Exception\ApiClientException;
 
 abstract class AbstractModel
 {
-    abstract protected function attributes(): array;
+    abstract protected function attributes();
 
-    abstract public function getIdentifier(): ?string;
+    abstract public function getIdentifier();
 
-    public function populate(array $data): void
+    public function populate(array $data)
     {
         foreach ($data as $key => $value) {
             if ($value === null || !in_array($key, $this->attributes(), true)) {
                 continue;
             }
             
-            if ($key === 'properties' || $key === 'customProperties') {
+            if ($key === 'properties') {
 
                 if ($this instanceof DynamicPropertiesInterface && is_array($value)) {
                     $properties = new Properties;
@@ -41,17 +41,12 @@ abstract class AbstractModel
      * @return array
      * @throws ApiClientException
      */
-    public function normalize(): array
+    public function normalize()
     {
         $normalizedData = [];
 
         foreach ($this->attributes() as $attribute) {
             $getter = 'get' . ucfirst($attribute);
-            
-            if ($getter === 'getCustomProperties') {
-                $getter = 'getProperties';
-            }
-
             $value = $this->$getter();
 
             if ($value === null) {
